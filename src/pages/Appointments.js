@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import dateFormat from 'dateformat';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getAppointments } from '../dal/api';
 
 function Appointments() {

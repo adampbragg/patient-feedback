@@ -2,12 +2,11 @@ export default function Review({questions, answers, confirmationHandler}) {
 
 	return (
 		<div>
-			<h1>Review your answers</h1>
 			{questions.map((question, i) => {
 				return (
-					<div key={i}>
+					<div key={i} className="review-question-answer">
 						<div className="question">{question.question}</div>
-						<div className="answer">{answers[i]}</div>
+						<div className="answer">You answered: {answers[i]}</div>
 					</div>
 				)
 			})}

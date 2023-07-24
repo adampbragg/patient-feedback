@@ -5,18 +5,53 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(240,240,240);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.tall {
+  height: 100%;
+}
+.container.root-container {
+  background-color: white;
+  margin: 0 20px;
+}
+.application-name {
+  font-family: aesthet-nova, serif;
+  font-weight: 300;
+  color: #3f3f3d;
+}
 .question {
   font-size: 16px;
   font-weight: 600;
+  font-family: aesthet-nova, serif;
+  
 }
 .answer {
   font-size: 14px;
   font-weight: 400;
+}
+.answer .answer-field {
+
+}
+.answer-option-unit {
+  display: inline-block;
+  vertical-align: baseline;
+}
+input[type=radio].answer-option-control {
+  margin:0 0 0 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.answer-button-container {
+  margin-top:16px;
+}
+.answer-text {
+  width: 100%;
+}
+.review-question-answer {
+  margin-bottom: 16px;
 }

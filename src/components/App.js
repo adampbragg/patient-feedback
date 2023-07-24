@@ -6,9 +6,9 @@ import SuccessPage from '../pages/Success';
 function App() {
   
   return (
-    <div className="container">
+    <div className="container tall root-container">
       <div className="section">
-        <div className="title">My Toy Manager</div>
+        <div className="title application-name">Appointments Manager</div>
         <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/appointments" />} />

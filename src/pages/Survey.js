@@ -63,7 +63,6 @@ function Survey() {
 
 	const handleAnswer = answer => {
 		const newAnswers = answers.slice();
-		const nextAnswerIndex = answers.length;
 		newAnswers.push(answer);
 		setAnswers(newAnswers);
 		loadNextQuestion(newAnswers.length);
@@ -73,13 +72,16 @@ function Survey() {
 		setSurveyAnswers(answers, survey.id, appointment.id);
 		navigate('success')
 	}
-
+	const reviewState = !currentQuestion && answers.length;
+	const greetingSubtitle = `Hi ${patient && patient.name[0].given[0]}, please tell us about your appointment.`;
+	const reviewSubtitle = `Thank you ${patient && patient.name[0].given[0]}, please review and confirm your answers.`;
+	const subtitle = reviewState ? reviewSubtitle : greetingSubtitle;
 	return (
 		<div>
-      <div className="subtitle">Hi {patient && patient.name[0].given[0]}, please tell us about your appointment.</div>
+      <div className="subtitle">{subtitle}</div>
 			<div>
 				{currentQuestion && <Question question={currentQuestion} answerHandle={handleAnswer} />}
-				{!currentQuestion && answers.length && <Review questions={survey.Questions} answers={answers} confirmationHandler={handleConfirmation} />}
+				{reviewState && <Review questions={survey.Questions} answers={answers} confirmationHandler={handleConfirmation} />}
 			</div>
 		</div>
 	);

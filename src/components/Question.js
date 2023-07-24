@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useInterpolate from '../hooks/useInterpolate';
 
 export default function Question({ question, answerHandle }) {
 	const [ answer, setAnswer ] = useState(null);
@@ -17,8 +16,10 @@ export default function Question({ question, answerHandle }) {
 							measure.map(unit => {
 								return (
 									<div key={`${unit}_answer`}>
-										<label htmlFor={`${unit}_answer`}>{unit}</label>
-										<input onChange={handleAnswerChange} required type="radio" value={unit} id={`${unit}_answer`} name="answer" />
+										<label htmlFor={`${unit}_answer`}>
+										<div className="answer-option-unit">{unit}</div>
+										<input onChange={handleAnswerChange} className="answer-option-control" required type="radio" value={unit} id={`${unit}_answer`} name="answer" />
+										</label>
 									</div>
 								)
 							})
@@ -27,7 +28,7 @@ export default function Question({ question, answerHandle }) {
 				)
 				break;
 			default: {
-				display = <input onChange={handleAnswerChange} required type="text" name="answer" />
+				display = <textarea className="answer-text" onChange={handleAnswerChange} required type="text" name="answer"></textarea>
 				break;
 			}
 		}
@@ -50,12 +51,16 @@ export default function Question({ question, answerHandle }) {
 	}
 	return (
 		<div>
-			{question?.question}
+			<div className="question">
+				{question?.question}
+			</div>
 			<div>
 				<form onSubmit={handleAnswer}>
 					{question && getAnswerDisplay(question.type, question.measure)}
-					{question?.help && getHelpDisplay(question.help)}
-					<div>
+					<div className="help">
+						{question?.help && getHelpDisplay(question.help)}
+					</div>
+					<div className="answer-button-container">
 						<input className="button" type="submit" value="Add Answer" />
 					</div>
 				</form>

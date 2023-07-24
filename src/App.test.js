@@ -3,6 +3,6 @@ import App from './components/App';
 
 test('renders headline', () => {
   render(<App />);
-  const headline = screen.getByText(/My Toy Manager/);
+  const headline = screen.getByText(/Appointments Manager/);
   expect(headline).toBeInTheDocument();
 });

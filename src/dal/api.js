@@ -32,7 +32,7 @@ const getDiagnosis = async appointmentId => {
 					.find(diagnosis => diagnosis.resource.appointment.reference.split('/')[1] === appointmentId).resource;
 }
 const setSurveyAnswers = async (answers, surveyId, appointmentId) => {
-	const surveyAnswers = {
+	/*const surveyAnswers = {
 		resource: {
 			id: crypto.randomUUID(),
 			resourceType: 'Answers',
@@ -40,7 +40,7 @@ const setSurveyAnswers = async (answers, surveyId, appointmentId) => {
 			appointmentId,
 			answers
 		}
-	}
+	}*/
 	//const response = await axios.post(`${baseUrl}/resources`, surveyAnswers);
 }
 export { getAppointments, getSurvey, getAppointment, setSurveyAnswers, getPatient, getDoctor, getDiagnosis };
